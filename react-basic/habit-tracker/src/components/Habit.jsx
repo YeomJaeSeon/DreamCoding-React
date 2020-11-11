@@ -6,7 +6,8 @@ export default class Habit extends Component {
   };
   handleIncrement = () => {
     //state 오브젝트안의 count 증가한뒤 state업데이트한다.
-    //++this.state.count;  : react는 state업데이트된지 몰라.
+    //++this.state.count;  : 이렇게하면 react는 state업데이트된지 몰라.
+    // -> 그래서 state 오브젝트 자체를 새로줘야 업데이트한다.
     this.setState({ count: this.state.count + 1 });
     //react Component에서 제공하는 setState함수를 사용해서 state를 업데이트가능
   };
