@@ -16,10 +16,12 @@ export default class Habit extends Component {
     this.setState({ count: count < 0 ? 0 : count });
   };
   render() {
+    const { name, count } = this.props.habit; // destructuring
+    //this.props는 react.Component클래스에 멤버변수로 이미존재한다
     return (
       <li className="habit">
-        <span className="habit-name">Reading</span>
-        <span className="habit-count">{this.state.count}</span>
+        <span className="habit-name">{name}</span>
+        <span className="habit-count">{count}</span>
         <button
           className="habit-button habit-increase"
           onClick={this.handleIncrement}

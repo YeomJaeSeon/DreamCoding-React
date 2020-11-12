@@ -1,7 +1,7 @@
 import React from 'react';
 import './App.css';
-import Habit from './components/Habit';
+import Habits from './components/Habits';
 
 export default function App() {
-  return <Habit></Habit>;
+  return <Habits></Habits>;
 }
