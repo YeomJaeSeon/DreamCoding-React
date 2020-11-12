@@ -1,19 +1,14 @@
 import React, { Component } from 'react';
 
 export default class Habit extends Component {
-  state = {
-    count: 0,
-  };
   handleIncrement = () => {
-    //state 오브젝트안의 count 증가한뒤 state업데이트한다.
-    //++this.state.count;  : 이렇게하면 react는 state업데이트된지 몰라.
-    // -> 그래서 state 오브젝트 자체를 새로줘야 업데이트한다.
-    this.setState({ count: this.state.count + 1 });
-    //react Component에서 제공하는 setState함수를 사용해서 state를 업데이트가능
+    this.props.onIncrement(this.props.habit);
   };
   handleDecrement = () => {
-    const count = this.state.count - 1;
-    this.setState({ count: count < 0 ? 0 : count });
+    this.props.onDecrement(this.props.habit);
+  };
+  handleDelete = () => {
+    this.props.onDelete(this.props.habit);
   };
   render() {
     const { name, count } = this.props.habit; // destructuring
@@ -34,7 +29,10 @@ export default class Habit extends Component {
         >
           <i className="fas fa-minus"></i>
         </button>
-        <button className="habit-button habit-delete">
+        <button
+          className="habit-button habit-delete"
+          onClick={this.handleDelete}
+        >
           <i className="fas fa-trash"></i>
         </button>
       </li>
