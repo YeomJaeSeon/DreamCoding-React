@@ -11,8 +11,7 @@ export default class Habit extends Component {
     this.props.onDelete(this.props.habit);
   };
   render() {
-    const { name, count } = this.props.habit; // destructuring
-    //this.props는 react.Component클래스에 멤버변수로 이미존재한다
+    const { name, count } = this.props.habit;
     return (
       <li className="habit">
         <span className="habit-name">{name}</span>

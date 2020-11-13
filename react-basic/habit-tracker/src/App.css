@@ -1,3 +1,47 @@
+body {
+  margin: 0;
+}
+
+/* Navbar.jsx */
+
+.navbar {
+  background-color: beige;
+  margin: 0;
+  padding: 40px;
+}
+.fa-leaf {
+  color: green;
+  margin-right: 20px;
+}
+.navbar-text {
+  margin-right: 10px;
+}
+
+/* Input.jsx */
+.input {
+  padding-top: 30px;
+  padding-left: 30px;
+}
+input {
+  font-size: 32px;
+  margin-right: 10px;
+}
+.input-button {
+  background-color: green;
+  color: white;
+  font-size: 25px;
+  padding: 7px;
+}
+/* Haibts.jsx */
+.habits-reset {
+  background-color: green;
+  color: white;
+  padding: 5px 20px;
+  font-size: 25px;
+  margin: 0.5em;
+}
+
+/* Habit.jsx */
 button {
   outline: none;
   border: 0;
