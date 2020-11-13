@@ -6,7 +6,6 @@ import Input from './components/Input';
 
 class App extends Component {
   state = {
-    habitCount: 0,
     habits: [
       { id: 1, name: 'Reading', count: 0 },
       { id: 2, name: 'Running', count: 0 },
@@ -17,31 +16,19 @@ class App extends Component {
     const habits = [...this.state.habits];
     const index = habits.indexOf(habit);
     habits[index].count++;
-    let habitCount = 0;
-    this.state.habits.forEach((habit) => {
-      if (habit.count > 0) ++habitCount;
-    });
-    this.setState({ habitCount: habitCount, habits: habits });
+    this.setState({ habits: habits });
   };
   handleDecrement = (habit) => {
     const habits = [...this.state.habits];
     const index = habits.indexOf(habit);
     const count = habits[index].count - 1;
     habits[index].count = count < 0 ? 0 : count;
-    let habitCount = 0;
-    this.state.habits.forEach((habit) => {
-      if (habit.count > 0) ++habitCount;
-    });
-    this.setState({ habitCount: habitCount, habits: habits });
+    this.setState({ habits: habits });
   };
   handleDelete = (habit) => {
     const habits = this.state.habits.filter((item) => item.id !== habit.id);
-    let habitCount = 0;
-    habits.forEach((habit) => {
-      if (habit.count > 0) ++habitCount;
-    });
+
     this.setState({
-      habitCount: habitCount,
       habits: habits,
     });
   };
@@ -55,16 +42,17 @@ class App extends Component {
   };
   reset = () => {
     const habits = [...this.state.habits];
-    habits.forEach((habit) => {
-      habit.count = 0;
-    });
-    this.setState({ habitCount: 0, habits: habits });
+    this.setState({ habits: habits });
   };
 
   render() {
     return (
       <>
-        <Navbar habitCount={this.state.habitCount}></Navbar>
+        <Navbar
+          totalCount={
+            this.state.habits.filter((habit) => habit.count > 0).length
+          }
+        ></Navbar>
         <Input onInput={this.inputHabit}></Input>
         <Habits
           habits={this.state.habits}

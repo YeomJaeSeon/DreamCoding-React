@@ -1,3 +1,7 @@
+* {
+  box-sizing: border-box;
+}
+
 body {
   margin: 0;
 }
@@ -12,9 +16,11 @@ body {
 .fa-leaf {
   color: green;
   margin-right: 20px;
+  font-size: 40px;
 }
 .navbar-text {
   margin-right: 10px;
+  font-size: 40px;
 }
 
 /* Input.jsx */
