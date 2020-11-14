@@ -1,11 +1,11 @@
-import React, { Component } from 'react';
+import React, { PureComponent } from 'react';
 import FormAddHabit from './FormAddHabit';
 import Habit from './Habit';
-class Habits extends Component {
+class Habits extends PureComponent {
   render() {
     console.log('Habits');
     return (
-      <>
+      <div>
         <FormAddHabit onAdd={this.props.onAdd}></FormAddHabit>
         <ul>
           {this.props.habits.map((habit) => (
@@ -21,7 +21,7 @@ class Habits extends Component {
         <button className="habits-reset" onClick={this.props.onReset}>
           Reset All
         </button>
-      </>
+      </div>
     );
   }
 }
