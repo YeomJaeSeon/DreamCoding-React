@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 
 class Navbar extends Component {
   render() {
+    console.log('Navbar');
     return (
       <nav className="navbar">
         <i className="fas fa-leaf"></i>
