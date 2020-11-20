@@ -1,0 +1,21 @@
+.navbar {
+  width: 1000px;
+  height: 60px;
+  display: flex;
+  /* justify-content: space-around; */
+  align-items: center;
+  background-color: black;
+  color: white;
+  margin: auto;
+  padding: 10px;
+}
+.logo {
+  width: 40px;
+  height: 40px;
+}
+.text {
+  font-size: 30px;
+}
+.form {
+  display: inline;
+}

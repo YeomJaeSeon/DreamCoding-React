@@ -1,15 +1,16 @@
-import React, { memo, useEffect, useState } from 'react';
+import React, { memo, useEffect, useState, useCallback } from 'react';
 
 const SimpleHabit = memo(() => {
   const [count, setCount] = useState(0);
 
-  const handleIncrement = () => {
+  const handleIncrement = useCallback(() => {
     setCount(count + 1);
     // this.setState({count : this.state.count + 1});과 같다.
-  };
+  }, [count]);
+
   useEffect(() => {
-    console.log('mounted ');
-  });
+    console.log('updated');
+  }, [count]);
   return (
     <li className="habit">
       <span span className="habit-name">

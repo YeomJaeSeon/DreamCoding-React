@@ -1,5 +1,12 @@
-import "./App.css";
+import React from 'react';
+import styles from './App.module.css';
+import Navbar from './components/Navbar';
 
 function App() {
-  return <h1>Hello!! :)</h1>;}
+  return (
+    <div className={styles.global}>
+      <Navbar></Navbar>
+    </div>
+  );
+}
 export default App;
