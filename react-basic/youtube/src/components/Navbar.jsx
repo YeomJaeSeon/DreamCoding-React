@@ -1,7 +1,14 @@
-import React from 'react';
+import React, { useRef } from 'react';
 import styles from './Navbar.module.css';
 
-const Navbar = (props) => {
+const Navbar = ({ search }) => {
+  const inputRef = useRef();
+  const onSubmit = (e) => {
+    e.preventDefault();
+    search(inputRef.current.value);
+    inputRef.current.value = '';
+    inputRef.current.focus();
+  };
   return (
     <nav className={styles.navbar}>
       <img
@@ -10,8 +17,13 @@ const Navbar = (props) => {
         alt="youtube logo"
       />
       <span className={styles.text}>Youtube</span>
-      <form action="" className={styles.form}>
-        <input type="text" className={styles.input} />
+      <form onSubmit={onSubmit} className={styles.form}>
+        <input
+          ref={inputRef}
+          type="text"
+          className={styles.input}
+          placeholder="Search..."
+        />
         <button className={styles.button}>
           <img
             src={process.env.PUBLIC_URL + './images/search.png'}

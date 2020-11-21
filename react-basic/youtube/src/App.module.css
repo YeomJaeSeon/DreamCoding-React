@@ -6,6 +6,15 @@ button {
   outline: none;
   border: none;
 }
+
+button {
+  background-color: transparent;
+  cursor: pointer;
+}
+ul {
+  list-style: none;
+  padding-left: 0;
+}
 .global {
   text-align: center;
 }
