@@ -1,7 +1,8 @@
-import React, { useRef } from 'react';
+import React, { memo, useRef } from 'react';
 import styles from './Navbar.module.css';
 
-const Navbar = ({ search }) => {
+const Navbar = memo(({ search }) => {
+  console.log('navbar rendered');
   const inputRef = useRef();
   const onSubmit = (e) => {
     e.preventDefault();
@@ -34,6 +35,6 @@ const Navbar = ({ search }) => {
       </form>
     </nav>
   );
-};
+});
 
 export default Navbar;

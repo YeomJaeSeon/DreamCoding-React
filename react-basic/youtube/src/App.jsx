@@ -1,20 +1,23 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useCallback } from 'react';
 import styles from './App.module.css';
 import Detail from './components/Detail';
 import Navbar from './components/Navbar';
 import Videos from './components/Videos';
 
 function App() {
+  console.log('App rendered');
   const [videos, setVideos] = useState([]);
   const [searchValue, setSearchValue] = useState();
   const [detailVideo, setDetailVideo] = useState();
 
-  const search = (value) => {
+  const search = useCallback((value) => {
     setSearchValue(value);
-  };
+    setDetailVideo(undefined);
+  }, []);
 
   useEffect(() => {
     if (searchValue === undefined) return;
+    console.log('SEARCH~~~~~~~~~~');
     const requestOptions = {
       method: 'GET',
       redirect: 'follow',
@@ -26,13 +29,13 @@ function App() {
     )
       .then((response) => response.text())
       .then((result) => {
-        console.log(JSON.parse(result).items);
         setVideos(JSON.parse(result).items);
       })
       .catch((error) => console.log('error', error));
   }, [searchValue]);
 
   useEffect(() => {
+    console.log('MOST POPULARS~~~~~~~~~~');
     const requestOptions = {
       method: 'GET',
       redirect: 'follow',
@@ -44,23 +47,23 @@ function App() {
     )
       .then((response) => response.text())
       .then((result) => {
-        console.log(JSON.parse(result).items);
         setVideos(JSON.parse(result).items);
       })
       .catch((error) => console.log('error', error));
   }, []);
-  const handleClick = (video) => {
+
+  const handleClick = useCallback((video) => {
     setDetailVideo(video);
-  };
+  }, []);
 
   return (
     <div className={styles.global}>
       <Navbar search={search}></Navbar>
       {detailVideo !== undefined ? (
-        <>
+        <div className={styles.detail}>
           <Detail item={detailVideo}></Detail>
           <Videos videos={videos} onClick={handleClick}></Videos>
-        </>
+        </div>
       ) : (
         <Videos videos={videos} onClick={handleClick}></Videos>
       )}

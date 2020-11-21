@@ -1,0 +1,9 @@
+.player {
+  position: sticky;
+  top: 0px;
+}
+@media screen and (max-width: 768px) {
+  .player {
+    width: 1000px;
+  }
+}

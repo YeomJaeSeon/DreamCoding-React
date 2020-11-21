@@ -2,6 +2,7 @@ import React from 'react';
 import styles from './Video.module.css';
 
 const Video = ({ item, onClick }) => {
+  console.log('video rendered');
   const videoImg = item.snippet.thumbnails.default.url;
   const videoTitle = item.snippet.title;
   const videoName = item.snippet.channelTitle;

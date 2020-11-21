@@ -16,3 +16,10 @@
 .video_img {
   vertical-align: middle;
 }
+@media screen and (max-width: 768px) {
+  .video {
+    display: block;
+    margin: auto;
+    width: 1000px;
+  }
+}
