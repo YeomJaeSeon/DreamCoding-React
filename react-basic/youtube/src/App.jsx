@@ -4,6 +4,8 @@ import Detail from './components/Detail';
 import Navbar from './components/Navbar';
 import Videos from './components/Videos';
 
+const APIKEY = 'AIzaSyCO7WFU8aTHMymDqsiWV62tJcercFEfgAc';
+
 function App() {
   console.log('App rendered');
   const [videos, setVideos] = useState([]);
@@ -24,7 +26,7 @@ function App() {
     };
 
     fetch(
-      `https://www.googleapis.com/youtube/v3/search?part=snippet&maxResults=25&q=${searchValue}&key=AIzaSyCO7WFU8aTHMymDqsiWV62tJcercFEfgAc`,
+      `https://www.googleapis.com/youtube/v3/search?part=snippet&maxResults=25&q=${searchValue}&key=${APIKEY}`,
       requestOptions
     )
       .then((response) => response.text())
@@ -42,7 +44,7 @@ function App() {
     };
 
     fetch(
-      'https://www.googleapis.com/youtube/v3/videos?part=snippet&maxResults=25&chart=mostPopular&key=AIzaSyCO7WFU8aTHMymDqsiWV62tJcercFEfgAc',
+      `https://www.googleapis.com/youtube/v3/videos?part=snippet&maxResults=25&chart=mostPopular&key=${APIKEY}`,
       requestOptions
     )
       .then((response) => response.text())
