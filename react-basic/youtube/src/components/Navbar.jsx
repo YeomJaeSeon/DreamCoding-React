@@ -1,6 +1,7 @@
 import React, { memo, useRef } from 'react';
 import styles from './Navbar.module.css';
-
+import logosrc from '../images/logo.png';
+import searchsrc from '../images/search.png';
 const Navbar = memo(({ search }) => {
   console.log('navbar rendered');
   const inputRef = useRef();
@@ -12,11 +13,7 @@ const Navbar = memo(({ search }) => {
   };
   return (
     <nav className={styles.navbar}>
-      <img
-        src={process.env.PUBLIC_URL + './images/logo.png'}
-        className={styles.logo}
-        alt="youtube logo"
-      />
+      <img src={logosrc} className={styles.logo} alt="youtube logo" />
       <span className={styles.text}>Youtube</span>
       <form onSubmit={onSubmit} className={styles.form}>
         <input
@@ -26,11 +23,7 @@ const Navbar = memo(({ search }) => {
           placeholder="Search..."
         />
         <button className={styles.button}>
-          <img
-            src={process.env.PUBLIC_URL + './images/search.png'}
-            alt=""
-            className={styles.img}
-          />
+          <img src={searchsrc} alt="" className={styles.img} />
         </button>
       </form>
     </nav>
