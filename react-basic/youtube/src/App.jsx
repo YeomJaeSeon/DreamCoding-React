@@ -4,7 +4,7 @@ import Detail from './components/Detail';
 import Navbar from './components/Navbar';
 import Videos from './components/Videos';
 
-const APIKEY = 'AIzaSyDh1GDRXKc5ZO5-8IYEncSOgsBWltPejCw';
+const APIKEY = process.env.REACT_APP_API_KEY;
 
 function App() {
   console.log('App rendered');
@@ -42,7 +42,7 @@ function App() {
     };
 
     fetch(
-      'https://www.googleapis.com/youtube/v3/videos?part=snippet&maxResults=10&chart=mostPopular&key=AIzaSyDh1GDRXKc5ZO5-8IYEncSOgsBWltPejCw',
+      `https://www.googleapis.com/youtube/v3/videos?part=snippet&maxResults=10&chart=mostPopular&key=${APIKEY}`,
       requestOptions
     )
       .then((response) => response.text())
