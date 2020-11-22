@@ -18,40 +18,42 @@ function App() {
   }, []);
 
   useEffect(() => {
-    if (searchValue === undefined) return;
-    console.log('SEARCH~~~~~~~~~~');
-    const requestOptions = {
-      method: 'GET',
-      redirect: 'follow',
-    };
+    alert('할당량문제로 닫음');
+    // if (searchValue === undefined) return;
+    // console.log('SEARCH~~~~~~~~~~');
+    // const requestOptions = {
+    //   method: 'GET',
+    //   redirect: 'follow',
+    // };
 
-    fetch(
-      `https://www.googleapis.com/youtube/v3/search?part=snippet&maxResults=25&q=${searchValue}&key=${APIKEY}`,
-      requestOptions
-    )
-      .then((response) => response.text())
-      .then((result) => {
-        setVideos(JSON.parse(result).items);
-      })
-      .catch((error) => console.log('error', error));
+    // fetch(
+    //   `https://www.googleapis.com/youtube/v3/search?part=snippet&maxResults=25&q=${searchValue}&key=${APIKEY}`,
+    //   requestOptions
+    // )
+    //   .then((response) => response.text())
+    //   .then((result) => {
+    //     setVideos(JSON.parse(result).items);
+    //   })
+    //   .catch((error) => console.log('error', error));
   }, [searchValue]);
 
   useEffect(() => {
-    console.log('MOST POPULARS~~~~~~~~~~');
-    const requestOptions = {
-      method: 'GET',
-      redirect: 'follow',
-    };
+    alert('할당량 문제로닫음');
+    // console.log('MOST POPULARS~~~~~~~~~~');
+    // const requestOptions = {
+    //   method: 'GET',
+    //   redirect: 'follow',
+    // };
 
-    fetch(
-      `https://www.googleapis.com/youtube/v3/videos?part=snippet&maxResults=25&chart=mostPopular&key=${APIKEY}`,
-      requestOptions
-    )
-      .then((response) => response.text())
-      .then((result) => {
-        setVideos(JSON.parse(result).items);
-      })
-      .catch((error) => console.log('error', error));
+    // fetch(
+    //   `https://www.googleapis.com/youtube/v3/videos?part=snippet&maxResults=25&chart=mostPopular&key=${APIKEY}`,
+    //   requestOptions
+    // )
+    //   .then((response) => response.text())
+    //   .then((result) => {
+    //     setVideos(JSON.parse(result).items);
+    //   })
+    //   .catch((error) => console.log('error', error));
   }, []);
 
   const handleClick = useCallback((video) => {
