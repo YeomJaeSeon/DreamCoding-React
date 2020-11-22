@@ -4,7 +4,7 @@ import Detail from './components/Detail';
 import Navbar from './components/Navbar';
 import Videos from './components/Videos';
 
-const APIKEY = 'AIzaSyCO7WFU8aTHMymDqsiWV62tJcercFEfgAc';
+const APIKEY = 'AIzaSyDh1GDRXKc5ZO5-8IYEncSOgsBWltPejCw';
 
 function App() {
   console.log('App rendered');
@@ -18,42 +18,36 @@ function App() {
   }, []);
 
   useEffect(() => {
-    alert('할당량문제로 닫음');
-    // if (searchValue === undefined) return;
-    // console.log('SEARCH~~~~~~~~~~');
-    // const requestOptions = {
-    //   method: 'GET',
-    //   redirect: 'follow',
-    // };
+    if (searchValue === undefined) return;
+    console.log('SEARCH~~~~~~~~~~');
+    const requestOptions = {
+      method: 'GET',
+      redirect: 'follow',
+    };
 
-    // fetch(
-    //   `https://www.googleapis.com/youtube/v3/search?part=snippet&maxResults=25&q=${searchValue}&key=${APIKEY}`,
-    //   requestOptions
-    // )
-    //   .then((response) => response.text())
-    //   .then((result) => {
-    //     setVideos(JSON.parse(result).items);
-    //   })
-    //   .catch((error) => console.log('error', error));
+    fetch(
+      `https://www.googleapis.com/youtube/v3/search?part=snippet&maxResults=25&q=${searchValue}&key=${APIKEY}`,
+      requestOptions
+    )
+      .then((response) => response.text())
+      .then((result) => setVideos(JSON.parse(result).items))
+      .catch((error) => console.log('error', error));
   }, [searchValue]);
 
   useEffect(() => {
-    alert('할당량 문제로닫음');
-    // console.log('MOST POPULARS~~~~~~~~~~');
-    // const requestOptions = {
-    //   method: 'GET',
-    //   redirect: 'follow',
-    // };
+    console.log('MOST POPULARS~~~~~~~~~~');
+    const requestOptions = {
+      method: 'GET',
+      redirect: 'follow',
+    };
 
-    // fetch(
-    //   `https://www.googleapis.com/youtube/v3/videos?part=snippet&maxResults=25&chart=mostPopular&key=${APIKEY}`,
-    //   requestOptions
-    // )
-    //   .then((response) => response.text())
-    //   .then((result) => {
-    //     setVideos(JSON.parse(result).items);
-    //   })
-    //   .catch((error) => console.log('error', error));
+    fetch(
+      'https://www.googleapis.com/youtube/v3/videos?part=snippet&maxResults=10&chart=mostPopular&key=AIzaSyDh1GDRXKc5ZO5-8IYEncSOgsBWltPejCw',
+      requestOptions
+    )
+      .then((response) => response.text())
+      .then((result) => setVideos(JSON.parse(result).items))
+      .catch((error) => console.log('error', error));
   }, []);
 
   const handleClick = useCallback((video) => {
