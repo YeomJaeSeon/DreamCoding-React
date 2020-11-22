@@ -2,7 +2,7 @@ import React from 'react';
 
 const Video = ({ item }) => {
   const title = item.snippet.title;
-  return <li>{title}</li>;
+  return <h1>{title}</h1>;
 };
 
 export default Video;

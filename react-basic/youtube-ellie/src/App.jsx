@@ -1,9 +1,10 @@
 import React, { useEffect, useState } from 'react';
-import Videos from './components/Videos';
+import Videos from './components/VideoList/Videos';
 
-const APIKEY = 'AIzaSyDh1GDRXKc5ZO5-8IYEncSOgsBWltPejCw';
+const APIKEY = process.env.REACT_APP_API_KEY;
 
 const App = () => {
+  console.log('App');
   const [items, setItems] = useState([]);
 
   useEffect(() => {
@@ -16,9 +17,9 @@ const App = () => {
       `https://www.googleapis.com/youtube/v3/videos?part=snippet&maxResults=10&chart=mostPopular&key=${APIKEY}`,
       requestOptions
     )
-      .then((response) => response.text())
+      .then((response) => response.json())
       .then((result) => {
-        setItems(JSON.parse(result).items);
+        setItems(result.items);
       })
       .catch((error) => console.log('error', error));
   }, []);
