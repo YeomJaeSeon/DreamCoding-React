@@ -26,7 +26,7 @@ function App() {
     };
 
     fetch(
-      `https://www.googleapis.com/youtube/v3/search?part=snippet&maxResults=25&q=${searchValue}&key=${APIKEY}`,
+      `https://www.googleapis.com/youtube/v3/search?part=snippet&maxResults=10&q=${searchValue}&key=${APIKEY}`,
       requestOptions
     )
       .then((response) => response.text())
