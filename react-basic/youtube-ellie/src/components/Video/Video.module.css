@@ -1,12 +1,11 @@
 .container {
   width: 50%;
-  padding: 0.4em;
+  padding: 0.3rem;
 }
 .video {
   display: flex;
   align-items: center;
   border: 1px solid lightgray;
-
   transition: transform 250ms ease-in;
 }
 .video:hover {
@@ -15,13 +14,14 @@
 .thumbnail {
   width: 40%;
 }
+
 .metadata {
-  margin-left: 0.2rem;
+  margin-left: 0.2em;
 }
 .title,
 .channelTitle {
   margin: 0;
-  font-size: 1.1em;
+  font-size: 1.2rem;
 }
 .channelTitle {
   font-size: 0.9rem;
