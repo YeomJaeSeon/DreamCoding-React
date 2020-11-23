@@ -1,7 +1,7 @@
-import React from 'react';
+import React, { memo } from 'react';
 import styles from './Video.module.css';
 
-const Video = ({ item, onClick }) => {
+const Video = memo(({ item, onClick }) => {
   console.log('video rendered');
   const videoImg = item.snippet.thumbnails.default.url;
   const videoTitle = item.snippet.title;
@@ -20,6 +20,6 @@ const Video = ({ item, onClick }) => {
       </button>
     </li>
   );
-};
+});
 
 export default Video;
