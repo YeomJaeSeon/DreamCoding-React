@@ -2,6 +2,9 @@
   width: 50%;
   padding: 0.3rem;
 }
+.detailContainer {
+  width: 1000px;
+}
 .video {
   display: flex;
   align-items: center;

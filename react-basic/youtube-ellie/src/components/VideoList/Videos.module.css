@@ -3,5 +3,12 @@
   flex-wrap: wrap;
   list-style: none;
   padding-left: 0;
-  margin: 0 3rem;
+  margin-left: 0 3rem;
+}
+.detailVideos {
+  display: flex;
+  flex-direction: column;
+  list-style: none;
+  padding-left: 0;
+  margin-left: 0 3rem;
 }

@@ -1,0 +1,8 @@
+.detail {
+  width: 80%;
+}
+.video {
+  position: sticky;
+  top: 0px;
+  display: inline-block;
+}
