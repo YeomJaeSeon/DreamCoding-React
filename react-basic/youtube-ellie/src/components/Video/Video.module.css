@@ -5,8 +5,10 @@
 .video {
   display: flex;
   align-items: center;
+  height: 100%;
   border: 1px solid lightgray;
   transition: transform 250ms ease-in;
+  cursor: pointer;
 }
 .video:hover {
   transform: scale(1.02);
