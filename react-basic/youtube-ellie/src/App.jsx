@@ -13,17 +13,21 @@ const App = ({ youtube }) => {
   }, []);
 
   const handleSubmit = (search) => {
-    youtube.search(search).then((items) => setItems(items));
+    youtube.search(search).then((items) => {
+      setItems(items);
+      setSelectedVideo(null);
+    });
   };
 
   const click = (item) => {
     setSelectedVideo(item);
   };
+  const styleType = selectedVideo && styles.selected;
 
   return (
     <div className={styles.app}>
       <Header onHandleSubmit={handleSubmit}></Header>
-      <section className={styles.content}>
+      <section className={`${styles.content}  ${styleType}`}>
         {selectedVideo && (
           <div className={styles.detail}>
             <Detail item={selectedVideo}></Detail>

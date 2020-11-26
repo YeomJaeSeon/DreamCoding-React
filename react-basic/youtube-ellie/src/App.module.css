@@ -11,3 +11,8 @@
 .list {
   flex: 1 1 30%;
 }
+@media screen and (max-width: 768px) {
+  .content.selected {
+    flex-direction: column;
+  }
+}

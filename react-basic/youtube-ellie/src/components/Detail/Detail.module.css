@@ -1,6 +1,10 @@
 .detail {
   padding: 0.2em;
 }
+.video {
+  position: sticky;
+  top: 10px;
+}
 .description {
   white-space: pre-wrap;
 }
