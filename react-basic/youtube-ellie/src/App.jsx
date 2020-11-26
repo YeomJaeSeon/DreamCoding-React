@@ -6,30 +6,38 @@ import styles from './App.module.css';
 
 const App = ({ youtube }) => {
   const [items, setItems] = useState([]);
-  const [isDetail, setIsDetail] = useState(false);
-  const [detailItem, setDetailItem] = useState({});
+  const [selectedVideo, setSelectedVideo] = useState(null);
 
   useEffect(() => {
     youtube.mostPopular().then((items) => setItems(items));
   }, []);
 
   const handleSubmit = (search) => {
-    setIsDetail(false);
     youtube.search(search).then((items) => setItems(items));
   };
 
   const click = (item) => {
-    setDetailItem(item);
-    setIsDetail(true);
+    setSelectedVideo(item);
   };
 
   return (
     <div className={styles.app}>
       <Header onHandleSubmit={handleSubmit}></Header>
-      <div className={styles.forDetail}>
-        {isDetail ? <Detail item={detailItem}></Detail> : null}
-        <Videos isDetail={isDetail} items={items} onClick={click}></Videos>
-      </div>
+      <section className={styles.content}>
+        {selectedVideo && (
+          <div className={styles.detail}>
+            <Detail item={selectedVideo}></Detail>
+          </div>
+        )}
+
+        <div className={styles.list}>
+          <Videos
+            items={items}
+            onClick={click}
+            display={selectedVideo ? 'list' : 'grid'}
+          ></Videos>
+        </div>
+      </section>
     </div>
   );
 };

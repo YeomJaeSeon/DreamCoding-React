@@ -1,6 +1,11 @@
 .container {
-  width: 50%;
   padding: 0.3rem;
+}
+.container.list {
+  width: 100%;
+}
+.container.grid {
+  width: 50%;
 }
 .detailContainer {
   width: 1000px;
@@ -26,7 +31,6 @@
 .title,
 .channelTitle {
   margin: 0;
-  font-size: 1.2rem;
 }
 .channelTitle {
   font-size: 0.9rem;
