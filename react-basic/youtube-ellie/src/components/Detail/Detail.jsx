@@ -7,6 +7,7 @@ const Detail = ({ item }) => {
       <iframe
         type="text/html"
         width="100%"
+        title="youtube video player"
         height="500px"
         src={`http://www.youtube.com/embed/${item.id}`}
         frameBorder="0"

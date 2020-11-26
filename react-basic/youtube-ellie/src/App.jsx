@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react';
+import React, { useCallback, useEffect, useState } from 'react';
 import Videos from './components/VideoList/Videos';
 import Header from './components/Header/Header';
 import Detail from './components/Detail/Detail';
@@ -10,18 +10,22 @@ const App = ({ youtube }) => {
 
   useEffect(() => {
     youtube.mostPopular().then((items) => setItems(items));
+  }, [youtube]);
+
+  const handleSubmit = useCallback(
+    (search) => {
+      youtube.search(search).then((items) => {
+        setItems(items);
+        setSelectedVideo(null);
+      });
+    },
+    [youtube]
+  );
+
+  const click = useCallback((item) => {
+    setSelectedVideo(item);
   }, []);
 
-  const handleSubmit = (search) => {
-    youtube.search(search).then((items) => {
-      setItems(items);
-      setSelectedVideo(null);
-    });
-  };
-
-  const click = (item) => {
-    setSelectedVideo(item);
-  };
   const styleType = selectedVideo && styles.selected;
 
   return (

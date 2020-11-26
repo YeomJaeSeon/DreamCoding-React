@@ -1,7 +1,7 @@
-import React from 'react';
+import React, { memo } from 'react';
 import styles from './Video.module.css';
 
-const Video = ({ item, onClick, display }) => {
+const Video = memo(({ item, onClick, display }) => {
   const title = item.snippet.title;
   const channelTitle = item.snippet.channelTitle;
   const thumbnail = item.snippet.thumbnails.medium.url;
@@ -11,7 +11,7 @@ const Video = ({ item, onClick, display }) => {
   };
 
   const displayType = display === 'grid' ? styles.grid : styles.list;
-
+  console.log('VIDEO');
   return (
     <li className={`${styles.container} ${displayType}`}>
       <div className={styles.video} onClick={handleClick}>
@@ -23,6 +23,6 @@ const Video = ({ item, onClick, display }) => {
       </div>
     </li>
   );
-};
+});
 
 export default Video;

@@ -1,8 +1,8 @@
-import React, { useRef } from 'react';
+import React, { useRef, memo } from 'react';
 
 import styles from './Header.module.css';
 
-const Header = ({ onHandleSubmit }) => {
+const Header = memo(({ onHandleSubmit }) => {
   const inputRef = useRef();
   const onSubmit = (e) => {
     e.preventDefault();
@@ -12,6 +12,7 @@ const Header = ({ onHandleSubmit }) => {
     inputRef.current.value = '';
     inputRef.current.focus();
   };
+  console.log('Header');
   return (
     <header className={styles.header}>
       <img src="/images/logo.png" alt="youtube logo" className={styles.logo} />
@@ -33,5 +34,6 @@ const Header = ({ onHandleSubmit }) => {
       </form>
     </header>
   );
-};
+});
+
 export default Header;
