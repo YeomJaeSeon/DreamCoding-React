@@ -1,30 +1,36 @@
+//youtube.js는 이제 완전히 youtube에서 뭘받는지만 나타내는
+//모듈이되었다. - 깔끔한 의존성 주입
+
 export default class Youtube {
-  constructor(key) {
-    this.key = key;
-    this.ReQuestOptions = {
-      method: 'GET',
-      redirect: 'follow',
-    };
+  constructor(httpClient) {
+    this.youtube = httpClient;
   }
   async mostPopular() {
-    const response = await fetch(
-      `https://www.googleapis.com/youtube/v3/videos?part=snippet&maxResults=10&chart=mostPopular&key=${this.key}`,
-      this.ReQuestOptions
-    );
-    const result = await response.json();
-    return result.items;
+    //axios자체에서 json()으로 변환해준다.
+    const response = await this.youtube.get('videos', {
+      params: {
+        part: 'snippet',
+        chart: 'mostPopular',
+        maxResults: 15,
+      },
+    });
+    return response.data.items;
   }
   async search(query) {
-    const response = await fetch(
-      `https://www.googleapis.com/youtube/v3/search?part=snippet&maxResults=16&q=${query}&key=${this.key}`,
-      this.ReQuestOptions
-    );
-    const result = await response.json();
-    const searchResult = result.items
+    const response = await this.youtube.get('search', {
+      params: {
+        part: 'snippet',
+        maxResults: 16,
+        q: query,
+      },
+    });
+    return response.data.items
       .filter((item) => item.id.kind !== 'youtube#channel')
-      .map((item_1) => {
-        return { ...item_1, id: item_1.id.videoId };
+      .map((item) => {
+        return {
+          ...item,
+          id: item.id.videoId,
+        };
       });
-    return searchResult;
   }
 }
