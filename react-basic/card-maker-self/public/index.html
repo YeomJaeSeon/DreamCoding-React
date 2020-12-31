@@ -14,5 +14,28 @@
   <body>
     <noscript>You need to enable JavaScript to run this app.</noscript>
     <div id="root"></div>
+    <!-- The core Firebase JS SDK is always required and must be listed first -->
+    <script src="https://www.gstatic.com/firebasejs/8.2.1/firebase-app.js"></script>
+
+    <!-- TODO: Add SDKs for Firebase products that you want to use
+     https://firebase.google.com/docs/web/setup#available-libraries -->
+    <script src="https://www.gstatic.com/firebasejs/8.2.1/firebase-analytics.js"></script>
+
+    <script>
+      // Your web app's Firebase configuration
+      // For Firebase JS SDK v7.20.0 and later, measurementId is optional
+      var firebaseConfig = {
+        apiKey: 'AIzaSyC_-5u0dU1eoREamjbqlaAV8IGkXzyvprc',
+        authDomain: 'business-card-maker-31990.firebaseapp.com',
+        projectId: 'business-card-maker-31990',
+        storageBucket: 'business-card-maker-31990.appspot.com',
+        messagingSenderId: '779940901072',
+        appId: '1:779940901072:web:1797b8d006debf6270aed5',
+        measurementId: 'G-0ZMVWNMN2J',
+      };
+      // Initialize Firebase
+      firebase.initializeApp(firebaseConfig);
+      firebase.analytics();
+    </script>
   </body>
 </html>
