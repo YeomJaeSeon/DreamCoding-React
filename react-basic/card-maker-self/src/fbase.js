@@ -1,5 +1,6 @@
 import firebase from 'firebase/app';
 import 'firebase/auth';
+import 'firebase/database';
 
 const firebaseConfig = {
   apiKey: process.env.REACT_APP_APIKEY,
@@ -9,9 +10,11 @@ const firebaseConfig = {
   messagingSenderId: process.env.REACT_APP_MESSAGINGSENDERID,
   appId: process.env.REACT_APP_APPID,
   measurementId: process.env.REACT_APP_MEASUREMENTID,
+  databaseURL: process.env.REACT_APP_DATABASEURL,
 };
 
 firebase.initializeApp(firebaseConfig);
 
 export const firebaseInstance = firebase;
 export const authService = firebase.auth();
+export const realtimeDatabase = firebase.database();
