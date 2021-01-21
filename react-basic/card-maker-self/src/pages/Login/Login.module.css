@@ -5,7 +5,7 @@
 
 .container {
   width: 500px;
-  height: 380px;
+  height: 330px;
   background-color: makerDarkBlue;
   color: makerWhite;
   text-align: center;
@@ -59,4 +59,5 @@
   justify-content: center;
   align-items: center;
   font-size: 1.08rem;
+  padding: 10px 0px;
 }

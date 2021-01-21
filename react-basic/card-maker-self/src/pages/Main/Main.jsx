@@ -1,8 +1,8 @@
 import React from 'react';
-import styles from './Main.module.css'
-import MainHaeder from '../../components/MainHeader/MainHeader'
-import CardMaker from '../../components/CardMaker/CardMaker'
-import CardPreview from '../../components/CardPreview/CardPreview'
+import styles from './Main.module.css';
+import MainHaeder from '../../components/MainHeader/MainHeader';
+import CardMaker from '../../components/CardMaker/CardMaker';
+import CardPreview from '../../components/CardPreview/CardPreview';
 
 const Main = () => {
   return (
@@ -13,7 +13,7 @@ const Main = () => {
         <CardPreview />
       </section>
     </div>
-  ); 
+  );
 };
 
 export default Main;
