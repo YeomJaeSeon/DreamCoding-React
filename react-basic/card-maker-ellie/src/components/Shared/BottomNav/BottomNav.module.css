@@ -1,0 +1,9 @@
+@value makerDarkBlue from '../../../common/colors.css';
+@value makerWhite from '../../../common/colors.css';
+
+.title {
+  text-align: center;
+  color: makerWhite;
+  background-color: makerDarkBlue;
+  padding: 20px 0;
+}
