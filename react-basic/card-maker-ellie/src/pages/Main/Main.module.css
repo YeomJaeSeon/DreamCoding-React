@@ -1,0 +1,23 @@
+@value makerWhite from '../../common/colors.css';
+@value mediaQuery from '../../common/size.css';
+
+.Main {
+  width: 80%;
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+.container {
+  background-color: makerWhite;
+  flex-grow: 1;
+  /* === flex: 1 */
+  /* flex -grow 1로줘서 내부모두채운다. 나는 height 100%로했음  */
+  display: flex;
+}
+
+@media screen and (max-width: mediaQuery) {
+  .container {
+    display: flex;
+    flex-direction: column;
+  }
+}

@@ -1,11 +1,20 @@
 import './App.css';
+import { BrowserRouter, Route, Switch } from 'react-router-dom';
 import Login from './pages/Login/Login';
+import Main from './pages/Main/Main';
 
 function App({ authService }) {
   return (
-    <>
-      <Login authService={authService} />
-    </>
+    <BrowserRouter>
+      <Switch>
+        <Route path="/" exact>
+          <Login authService={authService} />
+        </Route>
+        <Route path="/app" exact>
+          <Main authService={authService} />
+        </Route>
+      </Switch>
+    </BrowserRouter>
   );
 }
 export default App;
