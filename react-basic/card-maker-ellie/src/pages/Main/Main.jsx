@@ -58,12 +58,15 @@ const Main = ({ authService }) => {
       }
     });
   });
+  const add = (newCard) => {
+    setCards((cards) => [...cards, newCard]);
+  };
 
   return (
     <div className={styles.Main}>
       <TopNav onLogout={onLogout}>logout</TopNav>
       <div className={styles.container}>
-        <Maker cards={cards} />
+        <Maker cards={cards} onAdd={add} />
         <Preview cards={cards} />
       </div>
       <BottomNav />

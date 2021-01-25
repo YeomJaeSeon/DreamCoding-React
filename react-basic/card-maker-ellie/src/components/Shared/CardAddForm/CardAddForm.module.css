@@ -1,0 +1,39 @@
+.form {
+  width: 90%;
+  margin: 20px auto;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  max-width: 30rem;
+}
+.row1,
+.row2,
+.row3,
+.row4 {
+  display: flex;
+  width: 100%;
+}
+
+.name,
+.company,
+.theme,
+.job,
+.email,
+.comment {
+  flex-grow: 1;
+  padding: 0.5em;
+  outline: none;
+}
+.comment {
+  resize: none;
+}
+.fileinput {
+  flex-basis: 50%;
+  text-align: center;
+  background-color: pink;
+  padding: 0.2rem;
+  cursor: pointer;
+}
+.file {
+  display: none;
+}

@@ -8,12 +8,7 @@ const CardEditForm = ({
 }) => {
   const onSubmit = () => {};
   return (
-    <form
-      className={styles.form}
-      onSubmit={(e) => {
-        e.preventDefault();
-      }}
-    >
+    <form className={styles.form}>
       <div className={styles.row1}>
         <input
           className={styles.name}
