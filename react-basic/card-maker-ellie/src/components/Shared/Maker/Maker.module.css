@@ -1,6 +1,16 @@
 .container {
   flex-basis: 50%;
+  border-right: 1px solid lightgray;
 }
 .title {
   text-align: center;
+  color: #455a64;
+  font-size: 1.8em;
+}
+
+@media screen and (max-width: mediaQuery) {
+  .container {
+    border-right: none;
+    border-bottom: 1px solid lightgray;
+  }
 }

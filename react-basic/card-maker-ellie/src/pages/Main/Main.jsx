@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react';
+import React, { useEffect, useState } from 'react';
 import styles from './Main.module.css';
 import BottomNav from '../../components/Shared/BottomNav/BottomNav';
 import TopNav from '../../components/Shared/TopNav/TopNav';
@@ -7,6 +7,42 @@ import Maker from '../../components/Shared/Maker/Maker';
 import Preview from '../../components/Shared/Preview/Preview';
 
 const Main = ({ authService }) => {
+  const [cards, setCards] = useState([
+    {
+      id: 1,
+      name: 'jaeseon',
+      company: 'kakao',
+      theme: 'Light',
+      job: 'frontend Engineer',
+      email: 'a89541457@gmail.com',
+      comment: 'i love fe',
+      fileName: 'jaeseon',
+      fileURL: null,
+    },
+    {
+      id: 2,
+      name: 'soho',
+      company: 'naver',
+      theme: 'Colorful',
+      job: 'frontend Engineer',
+      email: 'a89541457@gmail.com',
+      comment: 'i love fe',
+      fileName: 'jaeseon',
+      fileURL: 'jaeseon.png',
+    },
+    {
+      id: 3,
+      name: 'yousung',
+      company: '공무원',
+      theme: 'Dark',
+      job: 'frontend Engineer',
+      email: 'a89541457@gmail.com',
+      comment: 'i love fe',
+      fileName: 'jaeseon',
+      fileURL: null,
+    },
+  ]);
+
   console.log('Maker rendered!');
   const history = useHistory();
   const location = useLocation();
@@ -27,8 +63,8 @@ const Main = ({ authService }) => {
     <div className={styles.Main}>
       <TopNav onLogout={onLogout}>logout</TopNav>
       <div className={styles.container}>
-        <Maker />
-        <Preview />
+        <Maker cards={cards} />
+        <Preview cards={cards} />
       </div>
       <BottomNav />
     </div>

@@ -1,0 +1,56 @@
+.container {
+  display: flex;
+  align-items: center;
+  margin: 20px auto;
+  padding: 0.2em;
+  max-width: 30rem;
+  border-radius: 15px;
+}
+.container.Dark {
+  background-color: black;
+  color: white;
+}
+.container.Light {
+  background-color: wheat;
+  color: black;
+}
+.container.Colorful {
+  background-color: #2f3ca0;
+  color: white;
+}
+.img {
+  width: 10em;
+  height: 10em;
+  padding: 1em;
+  margin-left: 0.5em;
+  margin-right: 10px;
+  border-radius: 50%;
+}
+.name,
+.company,
+.job,
+.email,
+.comment {
+  margin: 0px;
+  font-size: 0.8rem;
+  margin-bottom: 0.2em;
+}
+.name {
+  font-size: 1.2rem;
+}
+.company {
+  margin-bottom: 1em;
+}
+.company::after {
+  content: '';
+  display: block;
+  width: 90%;
+  height: 2px;
+  background-color: wheat;
+}
+
+.section {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+}

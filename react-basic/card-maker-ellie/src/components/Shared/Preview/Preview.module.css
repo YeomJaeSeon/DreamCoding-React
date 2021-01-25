@@ -3,4 +3,10 @@
 }
 .title {
   text-align: center;
+  color: #455a64;
+  font-size: 1.8em;
+}
+.ul {
+  list-style: none;
+  padding-left: 0;
 }
