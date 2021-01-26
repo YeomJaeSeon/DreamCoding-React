@@ -32,7 +32,13 @@ const CardAddForm = ({ onAdd }) => {
   };
 
   return (
-    <form ref={formRef} className={styles.form}>
+    <form
+      ref={formRef}
+      className={styles.form}
+      onSubmit={(e) => {
+        e.preventDefault();
+      }}
+    >
       <div className={styles.row1}>
         <input
           className={styles.name}
