@@ -1,9 +1,17 @@
+.container {
+  display: flex;
+  width: 50%;
+  height: 100%;
+}
 .button {
-  background-color: transparent;
+  width: 100%;
+  background-color: gray;
   border: none;
-  outline: none;
-  cursor: pointer;
   color: white;
-  font-weight: bold;
-  font-size: 1rem;
+  padding: 2px;
+  font-size: 1.2rem;
+  cursor: pointer;
+}
+.input {
+  display: none;
 }

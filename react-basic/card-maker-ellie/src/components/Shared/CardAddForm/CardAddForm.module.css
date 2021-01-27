@@ -27,13 +27,7 @@
 .comment {
   resize: none;
 }
-.fileinput {
-  flex-basis: 50%;
-  text-align: center;
-  background-color: pink;
-  padding: 0.2rem;
-  cursor: pointer;
-}
+
 .file {
   display: none;
 }

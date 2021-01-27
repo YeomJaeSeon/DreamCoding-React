@@ -6,7 +6,7 @@ import { useHistory, useLocation } from 'react-router-dom';
 import Maker from '../../components/Shared/Maker/Maker';
 import Preview from '../../components/Shared/Preview/Preview';
 
-const Main = ({ authService }) => {
+const Main = ({ authService, FileInput }) => {
   const [cards, setCards] = useState({
     1: {
       id: 1,
@@ -16,7 +16,7 @@ const Main = ({ authService }) => {
       job: 'frontend Engineer',
       email: 'a89541457@gmail.com',
       comment: 'i love fe',
-      fileName: 'jaeseon',
+      fileName: '',
       fileURL: null,
     },
     2: {
@@ -27,7 +27,7 @@ const Main = ({ authService }) => {
       job: 'frontend Engineer',
       email: 'a89541457@gmail.com',
       comment: 'i love fe',
-      fileName: 'jaeseon',
+      fileName: '',
       fileURL: 'jaeseon.png',
     },
     3: {
@@ -38,7 +38,7 @@ const Main = ({ authService }) => {
       job: 'frontend Engineer',
       email: 'a89541457@gmail.com',
       comment: 'i love fe',
-      fileName: 'jaeseon',
+      fileName: '',
       fileURL: null,
     },
   });
@@ -48,12 +48,13 @@ const Main = ({ authService }) => {
   const onLogout = () => {
     authService.logout();
   };
-
-  authService.onAuthStatus((user) => {
-    if (!user) {
-      history.push('/');
-    }
-  });
+  useEffect(() => {
+    authService.onAuthStatus((user) => {
+      if (!user) {
+        history.push('/');
+      }
+    });
+  }, []);
 
   const onDelete = (selectedId) => {
     setCards((cards) => {
@@ -70,14 +71,16 @@ const Main = ({ authService }) => {
       // 새롭게 안만들었고 난 새롭게 만든 차이밖에없음
       // 근데 새롭게만든 object를 전달하는거기떄문에 이건 엘리가 더 적절
 
-      return { ...cards, [newCard.id]: { ...newCard } };
+      return { ...cards, [newCard.id]: newCard };
     });
   };
+
   return (
     <div className={styles.Main}>
       <TopNav onLogout={onLogout}>logout</TopNav>
       <div className={styles.container}>
         <Maker
+          FileInput={FileInput}
           cards={cards}
           onAdd={createOrUpdate}
           onDelete={onDelete}

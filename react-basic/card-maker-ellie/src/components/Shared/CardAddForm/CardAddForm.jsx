@@ -1,11 +1,9 @@
-import React, { useRef } from 'react';
+import React, { useRef, useState } from 'react';
 import Button from '../Button/Button';
-import FileInput from '../FileInput/FileInput';
 import styles from './CardAddForm.module.css';
 
-const CardAddForm = ({ onAdd }) => {
-  const formRef = useRef();
-
+const CardAddForm = ({ FileInput, onAdd }) => {
+  const [file, setFile] = useState({ fileName: null, fileURL: null });
   const nameRef = useRef();
   const companyRef = useRef();
   const themeRef = useRef();
@@ -13,8 +11,9 @@ const CardAddForm = ({ onAdd }) => {
   const emailRef = useRef();
   const commentRef = useRef();
 
-  const onAddHandler = (e) => {
-    e.preventDefault();
+  const formRef = useRef();
+
+  const onAddHandler = () => {
     const card = {
       id: Date.now(),
       name: nameRef.current.value || '',
@@ -22,13 +21,16 @@ const CardAddForm = ({ onAdd }) => {
       theme: themeRef.current.value,
       job: jobRef.current.value || '',
       email: emailRef.current.value || '',
-      comment: commentRef.current.value || '',
-      fileName: '',
-      fileURL: null,
+      fileName: file.fileName,
+      fileURL: file.fileURL,
     };
     onAdd(card);
     formRef.current.reset();
-    // form 태그에 이렇게 reset함수가 있어서 reset시킬수있다
+    setFile({ fileName: null, fileURL: null });
+  };
+
+  const fileUpdate = (data) => {
+    setFile({ fileName: data.name, fileURL: data.url });
   };
 
   return (
@@ -43,19 +45,18 @@ const CardAddForm = ({ onAdd }) => {
         <input
           className={styles.name}
           type="text"
-          className={styles.name}
           name="name"
           ref={nameRef}
           placeholder="이름입력"
         />
         <input
-          ref={companyRef}
           name="company"
           className={styles.company}
           type="text"
           placeholder="회사입력"
+          ref={companyRef}
         />
-        <select ref={themeRef} name="theme" className={styles.theme}>
+        <select name="theme" className={styles.theme} ref={themeRef}>
           <option value="Light">Light</option>
           <option value="Dark">Dark</option>
           <option value="Colorful">Colorful</option>
@@ -63,32 +64,30 @@ const CardAddForm = ({ onAdd }) => {
       </div>
       <div className={styles.row2}>
         <input
-          ref={jobRef}
           name="job"
           className={styles.job}
           type="text"
           placeholder="직업입력"
+          ref={jobRef}
         />
         <input
-          ref={emailRef}
           name="email"
           className={styles.email}
           type="text"
           placeholder="이메일입력"
+          ref={emailRef}
         />
       </div>
       <div className={styles.row3}>
         <textarea
-          ref={commentRef}
           name="comment"
           className={styles.comment}
           placeholder="할말입력"
+          ref={commentRef}
         />
       </div>
       <div className={styles.row4}>
-        <div className={styles.fileinput}>
-          <FileInput />
-        </div>
+        <FileInput fileUpdate={fileUpdate} fileName={file.fileName} />
         <Button name="Add" onClick={onAddHandler} />
       </div>
     </form>

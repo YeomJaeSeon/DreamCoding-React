@@ -2,6 +2,7 @@ import React from 'react';
 import styles from './Card.module.css';
 
 function getStyles(theme) {
+  console.log(theme);
   switch (theme) {
     case 'Dark':
       return styles.Dark;
@@ -16,7 +17,7 @@ function getStyles(theme) {
 
 const DEFAULT_IMAGE = '/images/default_logo.png';
 const Card = ({
-  card: { name, company, theme, job, email, comment, fileName, fileURL },
+  card: { name, company, theme, job, email, comment, fileURL },
 }) => {
   const url = fileURL ? fileURL : DEFAULT_IMAGE;
   return (

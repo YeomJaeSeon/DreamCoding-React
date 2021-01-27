@@ -21,12 +21,13 @@ const Login = ({ authService }) => {
   };
 
   // Login 컴포넌트 마운트될때 로그인이 되어있으면 바로 app페이지 로 라우팅
-
-  authService.onAuthStatus((user) => {
-    if (user) {
-      goToApp(user.uid);
-    }
-  });
+  useEffect(() => {
+    authService.onAuthStatus((user) => {
+      if (user) {
+        goToApp(user.uid);
+      }
+    });
+  }, []);
 
   return (
     <div className={styles.container}>

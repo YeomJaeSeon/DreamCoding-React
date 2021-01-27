@@ -1,9 +1,14 @@
 import React from 'react';
 import Button from '../Button/Button';
-import FileInput from '../FileInput/FileInput';
 import styles from './CardEditForm.module.css';
 
-const CardEditForm = ({ card, onDeleteHandler, onUpdateHandler }) => {
+const CardEditForm = ({
+  FileInput,
+  card,
+  onDeleteHandler,
+  onUpdateHandler,
+  uploadService,
+}) => {
   const {
     id,
     name,
@@ -23,6 +28,10 @@ const CardEditForm = ({ card, onDeleteHandler, onUpdateHandler }) => {
     if (e.currentTarget === null) return;
     // object key에 변수로바로 접근하려면 [string]을 이용함.
     onUpdateHandler({ ...card, [e.currentTarget.name]: e.currentTarget.value });
+  };
+
+  const fileUpdate = (file) => {
+    onUpdateHandler({ ...card, fileName: file.name, fileURL: file.url });
   };
   return (
     <form
@@ -83,9 +92,7 @@ const CardEditForm = ({ card, onDeleteHandler, onUpdateHandler }) => {
         />
       </div>
       <div className={styles.row4}>
-        <div className={styles.fileinput}>
-          <FileInput />
-        </div>
+        <FileInput fileUpdate={fileUpdate} fileName={fileName} />
         <Button name="Delete" onClick={onDelete} />
       </div>
     </form>
