@@ -7,19 +7,8 @@ const CardEditForm = ({
   card,
   onDeleteHandler,
   onUpdateHandler,
-  uploadService,
 }) => {
-  const {
-    id,
-    name,
-    company,
-    theme,
-    job,
-    email,
-    comment,
-    fileName,
-    fileURL,
-  } = card;
+  const { id, name, company, theme, job, email, comment, fileName } = card;
   const onDelete = () => {
     onDeleteHandler(id);
   };
@@ -44,7 +33,6 @@ const CardEditForm = ({
         <input
           className={styles.name}
           type="text"
-          className={styles.name}
           name="name"
           value={name}
           onChange={onUpdate}

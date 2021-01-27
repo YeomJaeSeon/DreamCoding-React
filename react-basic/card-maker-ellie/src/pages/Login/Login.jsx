@@ -27,7 +27,7 @@ const Login = ({ authService }) => {
         goToApp(user.uid);
       }
     });
-  }, []);
+  }, [authService]);
 
   return (
     <div className={styles.container}>

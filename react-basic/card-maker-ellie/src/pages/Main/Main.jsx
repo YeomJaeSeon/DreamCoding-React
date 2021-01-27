@@ -54,7 +54,7 @@ const Main = ({ authService, FileInput }) => {
         history.push('/');
       }
     });
-  }, []);
+  }, [authService]);
 
   const onDelete = (selectedId) => {
     setCards((cards) => {

@@ -22,7 +22,7 @@ const Card = ({
   const url = fileURL ? fileURL : DEFAULT_IMAGE;
   return (
     <li className={`${styles.container} ${getStyles(theme)}`}>
-      <img className={styles.img} src={url} alt="profile photo" />
+      <img className={styles.img} src={url} alt="profile" />
       <section className={styles.section}>
         <h1 className={styles.name}>{name}</h1>
         <p className={styles.company}>{company}</p>
