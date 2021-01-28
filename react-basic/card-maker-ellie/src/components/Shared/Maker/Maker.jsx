@@ -16,7 +16,9 @@ const Maker = ({ FileInput, cards, onAdd, onDelete, onUpdate }) => {
           onUpdateHandler={onUpdate}
         />
       ))}
-      <CardAddForm FileInput={FileInput} onAdd={onAdd} />
+
+       <CardAddForm FileInput={FileInput} onAdd={onAdd} />
+      
     </div>
   );
 };

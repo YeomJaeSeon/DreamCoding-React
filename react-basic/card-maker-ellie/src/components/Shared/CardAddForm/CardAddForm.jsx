@@ -3,7 +3,8 @@ import Button from '../Button/Button';
 import styles from './CardAddForm.module.css';
 
 const CardAddForm = ({ FileInput, onAdd }) => {
-  const [file, setFile] = useState({ fileName: null, fileURL: null });
+  const [file, setFile] = useState({ fileName: '', fileURL: '' });
+
   const nameRef = useRef();
   const companyRef = useRef();
   const themeRef = useRef();
@@ -21,12 +22,13 @@ const CardAddForm = ({ FileInput, onAdd }) => {
       theme: themeRef.current.value,
       job: jobRef.current.value || '',
       email: emailRef.current.value || '',
+      comment: commentRef.current.value || '',
       fileName: file.fileName,
       fileURL: file.fileURL,
     };
     onAdd(card);
     formRef.current.reset();
-    setFile({ fileName: null, fileURL: null });
+    setFile({ fileName: '', fileURL: '' }); // state reset
   };
 
   const fileUpdate = (data) => {

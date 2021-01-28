@@ -1,6 +1,7 @@
 .container {
   flex-basis: 50%;
   border-right: 1px solid lightgray;
+  overflow: auto;
 }
 .title {
   text-align: center;
