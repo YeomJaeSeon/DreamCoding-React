@@ -1,0 +1,10 @@
+.container {
+  background-color: darkblue;
+  text-align: center;
+  color: white;
+  font-size: 15px;
+  border-radius: 0 0 30px 30px;
+}
+.comment {
+  padding: 20px 0;
+}

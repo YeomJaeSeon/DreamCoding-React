@@ -1,0 +1,25 @@
+.container {
+  width: 500px;
+  height: 400px;
+  background-color: white;
+  display: flex;
+  flex-direction: column;
+  border-radius: 30px;
+}
+.loginSection {
+  flex-basis: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.button {
+  width: 80%;
+  height: 50px;
+  font-size: 30px;
+  border-radius: 30px;
+  cursor: pointer;
+  outline: none;
+}
+.button:hover {
+  background-color: skyblue;
+}
