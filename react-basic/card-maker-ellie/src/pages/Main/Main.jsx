@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react';
+import React, { useEffect, useState, useCallback } from 'react';
 import styles from './Main.module.css';
 import BottomNav from '../../components/Shared/BottomNav/BottomNav';
 import TopNav from '../../components/Shared/TopNav/TopNav';
@@ -14,26 +14,19 @@ const Main = ({ authService, FileInput, databaseService }) => {
 
   const history = useHistory();
 
-  const onLogout = () => {
+  const onLogout = useCallback(() => {
     authService.logout();
-  };
-
+  }, [authService])
+  
   useEffect(() => {
     if (!userId) return;
-    // databaseSErvie.databseSync는 여느함수완 다르다. 이벤트리스너처럼
-    // 이벤트 대기하고있는 함수이므로 이게 실행이되는거임
-    // const event = document.querySelector('.class').addEventListener(
-    // 'click', () => ~~); 이거랑똒같은거임
-    // 이렇게 event로 선언만해도 함수등록되서 이벤트 발생하면 콜백함수 실행되는거랑
-    // 같은 이치임.
-
     const stopSync = databaseService.databseSync(userId, (value) => {
       if (!value) setCards({});
       else setCards(value);
     });
 
     return () => stopSync();
-  }, [userId]);
+  }, [userId, databaseService]);
 
   useEffect(() => {
     authService.onAuthStatus((user) => {
@@ -43,22 +36,22 @@ const Main = ({ authService, FileInput, databaseService }) => {
         history.push('/');
       }
     });
-  }, []);
+  }, [authService, history]);
 
-  const onDelete = (selectedId) => {
+  const onDelete = useCallback((selectedId) => {
     setCards((cards) => {
       delete cards[selectedId];
       return { ...cards };
     });
     databaseService.delete(userId, selectedId);
-  };
+  }, [databaseService, userId])
 
-  const createOrUpdate = (newCard) => {
+  const createOrUpdate = useCallback((newCard) => {
     setCards((cards) => {
       return { ...cards, [newCard.id]: newCard };
     });
     databaseService.write(userId, newCard);
-  };
+  }, [userId, databaseService])
 
   return (
     <div className={styles.Main}>

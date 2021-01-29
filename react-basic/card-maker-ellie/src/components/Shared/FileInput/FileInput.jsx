@@ -1,7 +1,7 @@
-import React, { useState, useRef } from 'react';
+import React, { useState, useRef, memo } from 'react';
 import styles from './FileInput.module.css';
 
-const FileInput = ({ uploadService, fileUpdate, fileName }) => {
+const FileInput = memo(({ uploadService, fileUpdate, fileName }) => {
   const inputRef = useRef();
   const [pending, setPending] = useState(false);
 
@@ -38,6 +38,6 @@ const FileInput = ({ uploadService, fileUpdate, fileName }) => {
       )}
     </div>
   );
-};
+})
 
 export default FileInput;

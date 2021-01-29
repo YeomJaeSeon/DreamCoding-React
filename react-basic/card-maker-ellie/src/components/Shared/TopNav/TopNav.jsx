@@ -15,4 +15,4 @@ const TopNav = ({ onLogout, children }) => {
   );
 };
 
-export default TopNav;
+export default React.memo(TopNav);

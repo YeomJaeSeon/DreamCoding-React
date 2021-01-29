@@ -5,4 +5,4 @@ const BottomNav = () => {
   return <div className={styles.title}>Code your dream</div>;
 };
 
-export default BottomNav;
+export default React.memo(BottomNav);

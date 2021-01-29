@@ -2,7 +2,6 @@ import React from 'react';
 import styles from './Card.module.css';
 
 function getStyles(theme) {
-  console.log(theme);
   switch (theme) {
     case 'Dark':
       return styles.Dark;
@@ -34,4 +33,4 @@ const Card = ({
   );
 };
 
-export default Card;
+export default React.memo(Card);

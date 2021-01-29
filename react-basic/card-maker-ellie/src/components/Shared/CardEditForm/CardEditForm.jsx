@@ -1,19 +1,22 @@
-import React from 'react';
+import React, {memo} from 'react';
 import Button from '../Button/Button';
 import styles from './CardEditForm.module.css';
 
-const CardEditForm = ({
+const CardEditForm = memo(({
   FileInput,
   card,
   onDeleteHandler,
   onUpdateHandler,
 }) => {
   const { id, name, company, theme, job, email, comment, fileName } = card;
+
   const onDelete = () => {
     onDeleteHandler(id);
   };
 
+
   const onUpdate = (e) => {
+    e.preventDefault();
     if (e.currentTarget === null) return;
     // object key에 변수로바로 접근하려면 [string]을 이용함.
     onUpdateHandler({ ...card, [e.currentTarget.name]: e.currentTarget.value });
@@ -22,6 +25,7 @@ const CardEditForm = ({
   const fileUpdate = (file) => {
     onUpdateHandler({ ...card, fileName: file.name, fileURL: file.url });
   };
+
   return (
     <form
       className={styles.form}
@@ -85,6 +89,6 @@ const CardEditForm = ({
       </div>
     </form>
   );
-};
+})
 
 export default CardEditForm;

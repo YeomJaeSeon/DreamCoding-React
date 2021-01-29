@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { memo } from 'react';
 import ReactDOM from 'react-dom';
 import './index.css';
 import App from './App';
@@ -16,10 +16,10 @@ const uploadService = new UploadService();
 
 const databaseService = new DatabaseService();
 
-const FileInput = (props) => {
+const FileInput = memo((props) => {
   // 하나의 완성된 엘리먼트를 리턴한다.
   return <FileInputer {...props} uploadService={uploadService} />;
-};
+});
 
 //-> 확장성이 높아짐.
 // )) 이런방식으로하면 다른 의존성 서비스를 inject받을경우

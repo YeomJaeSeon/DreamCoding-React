@@ -96,4 +96,4 @@ const CardAddForm = ({ FileInput, onAdd }) => {
   );
 };
 
-export default CardAddForm;
+export default React.memo(CardAddForm);
