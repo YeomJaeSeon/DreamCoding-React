@@ -1,0 +1,35 @@
+.container {
+  flex-basis: 100%;
+  cursor: pointer;
+  background-color: lightgray;
+  color: white;
+  font-size: 20px;
+}
+.loadingBack {
+  flex-basis: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.loadingSpinner {
+  width: 30px;
+  height: 30px;
+  border: 5px solid gray;
+  border-top: 5px solid blue;
+  border-radius: 50%;
+  animation: spin 2s linear infinite;
+}
+@keyframes spin {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
+.container.exist {
+  background-color: lightpink;
+}
+.file {
+  display: none;
+}

@@ -6,15 +6,18 @@ import { useHistory } from 'react-router-dom';
 
 const Login = ({ authService }) => {
   const history = useHistory();
-  const goToApp = (uid) => {
-    history.push({
-      pathname: '/app',
-      state: { id: uid },
+
+  useEffect(() => {
+    const goToApp = (uid) => {
+      history.push({
+        pathname: '/app',
+        state: { id: uid },
+      });
+    };
+    authService.authStatus((user) => {
+      if (user) goToApp(user.uid);
     });
-  };
-  useEffect((user) => {
-    if (user) authService.authStatus(goToApp);
-  }, []);
+  }, [authService, history]);
 
   const googleLogin = () => {
     authService.login();
